@@ -18,9 +18,25 @@ starter_encouragements = [
     "Eat some rice man", "grab a cold one", "take a swim"
 ]
 
-# @client.event
-# async def on_ready():
-#     print('Ready!')
+#intents = discord.Intents.default()
+#intents.typing = False
+
+#bot_token = "Bot token"
+
+#welcome_channel_id = 'channel id'
+
+#bot = discord.Client(intents=intents)
+
+#@bot.event
+#async def on_ready():
+  #welcome_channel = bot.get_channel(welcome_channel_id)
+
+  #if welcome_channel:
+    #await welcome_channel.send("Enter message")
+
+  #print(f'{bot.user} is online and ready to go!')
+
+#bot.run(bot_token)
 
 def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
@@ -90,10 +106,12 @@ async def on_message(message):
     if msg.startswith("$encouragements"):
       await message.channel.send(starter_encouragements)
 
+    if msg.startswith("$added_encouragements"):
+      await message.channel.send(db["encouragements"])
+  
     if msg.startswith("$words"):
       await message.channel.send(sad_words)
 
-    if msg.startswith("$test"):
-      await message.channel.send(db["encouragements"])
+    
 
 client.run(discord_api_key)
