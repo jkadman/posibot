@@ -18,6 +18,9 @@ starter_encouragements = [
     "Eat some rice man", "grab a cold one", "take a swim"
 ]
 
+# @client.event
+# async def on_ready():
+#     print('Ready!')
 
 def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
@@ -54,7 +57,7 @@ async def on_message(message):
 
     msg = message.content
 
-    if message.content.startswith("$inspire"):
+    if msg.startswith("$inspire"):
         quote = get_quote()
         await message.channel.send(quote)
 
@@ -78,8 +81,19 @@ async def on_message(message):
             encouragements = db["encouragements"]
         await message.channel.send(encouragements)
 
-    if message.content.startswith("$hello"):
+    if msg.startswith("$hello"):
         await message.channel.send("Hello " + message.author.name + '!')
 
+    if msg.startswith("$instructions"):
+        await message.channel.send("Here is how you use me commands: type $hello and I will respond, type $inspire and I will give you an inspirational quote from Zen quotes, if you type in a word like, sad, depressed or miserable and I will respond with a nice statement or a suggestion of something you can do, type $new to add a new positive statement for when hard emotions are expressed.")
+
+    if msg.startswith("$encouragements"):
+      await message.channel.send(starter_encouragements)
+
+    if msg.startswith("$words"):
+      await message.channel.send(sad_words)
+
+    if msg.startswith("$test"):
+      await message.channel.send(db["encouragements"])
 
 client.run(discord_api_key)

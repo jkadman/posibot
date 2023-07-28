@@ -1,7 +1,7 @@
 # posibot
 A friendly discord bot to breed positive thoughts built with Python
 
-This bot was built in replit using these instructions:
+This bot was built in replit using these base instructions:
 https://www.freecodecamp.org/news/create-a-discord-bot-with-python/
 
 I wanted to upload it my github so currently some of the code won't work as is in VS Code.  You could just copy and paste it in replit to get it working.
