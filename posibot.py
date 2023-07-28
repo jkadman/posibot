@@ -85,7 +85,7 @@ async def on_message(message):
         await message.channel.send("Hello " + message.author.name + '!')
 
     if msg.startswith("$instructions"):
-        await message.channel.send("Here is how you use me commands: type $hello and I will respond, type $inspire and I will give you an inspirational quote from Zen quotes, if you type in a word like, sad, depressed or miserable and I will respond with a nice statement or a suggestion of something you can do, type $new to add a new positive statement for when hard emotions are expressed.")
+        await message.channel.send('Here is how you use me commands: type "$hello" and I will respond, type "$inspire" and I will give you an inspirational quote from Zen quotes, if you type in a word like, "sad", "depressed" or "miserable" and I will respond with a nice statement or a suggestion of something you can do, type "$new" to add a new positive statement for when you are having a hard day.')
 
     if msg.startswith("$encouragements"):
       await message.channel.send(starter_encouragements)
